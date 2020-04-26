@@ -1,19 +1,13 @@
 package com.springboot.mini.service;
 
-import com.springboot.mini.model.EqualExpense;
-import com.springboot.mini.model.ExactExpense;
-import com.springboot.mini.model.Expense;
-import com.springboot.mini.model.User;
+import com.springboot.mini.model.*;
 import com.springboot.mini.service.impl.MemoryExpenseServiceImpl;
 import com.springboot.mini.service.impl.MemoryPassBookServiceImpl;
 import com.springboot.mini.service.impl.MemoryUserServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 class ExpenseServiceTest {
 
@@ -68,7 +62,16 @@ class ExpenseServiceTest {
 	  expenseService.create(e2);
 
 
+	  // Percent Share
+      Map<User, Float> percentShareMap = new HashMap<>();
+      percentShareMap.put(u3, 20F);
+      percentShareMap.put(u2, 20F);
+      percentShareMap.put(u4, 40F);
+      percentShareMap.put(u5, 20F);
+      Expense e3 = new PercentExpense(u4, 2000F, percentShareMap);
+      expenseService.create(e3);
+
 	  expenseService.getAll();
-	  passBookService.allRecords();
+      passBookService.allRecords();
   }
 }
