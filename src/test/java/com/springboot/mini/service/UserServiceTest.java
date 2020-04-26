@@ -1,7 +1,8 @@
-package com.springboot.mini.service.impl;
+package com.springboot.mini.service;
 
 import com.springboot.mini.model.User;
 import com.springboot.mini.service.UserService;
+import com.springboot.mini.service.impl.MemoryUserServiceImpl;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

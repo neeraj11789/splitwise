@@ -14,12 +14,10 @@ public class EqualExpense extends Expense {
    *
    * @param lender the lender
    * @param amount the amount
-   * @param type the type
    * @param users the users
    */
-  public EqualExpense(
-      @NonNull User lender, @NonNull Float amount, @NonNull ExpenseType type, List<User> users) {
-		super(lender, amount, type);
+  public EqualExpense(@NonNull User lender, @NonNull Float amount, List<User> users) {
+		super(lender, amount, ExpenseType.EQUAL);
 		setUserShareMap(calculateUserShareMap(users));
 		setUserAmountMap(calculateAmountPerUser());
 	}

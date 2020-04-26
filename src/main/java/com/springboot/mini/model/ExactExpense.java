@@ -11,14 +11,15 @@ public class ExactExpense extends Expense {
    *
    * @param lender the lender
    * @param amount the amount
-   * @param type the type
+   *
    */
-  public ExactExpense(@NonNull User lender, @NonNull Float amount, @NonNull ExpenseType type) {
-		super(lender, amount, type);
+  public ExactExpense(@NonNull User lender, @NonNull Float amount, Map<User,Float> shareMap) {
+		super(lender, amount, ExpenseType.EXACT, shareMap);
+		setUserAmountMap(calculateAmountPerUser());
 	}
 
 	@Override
 	protected Map<User, Float> calculateAmountPerUser() {
-		return null;
+  	    return getUserShareMap();
 	}
 }

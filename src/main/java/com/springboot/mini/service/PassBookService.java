@@ -29,5 +29,5 @@ public interface PassBookService {
    *
    * @return the list
    */
-  List<PassBookEntry> userAllRecords();
+  List<PassBookEntry> allRecords();
 }
