@@ -3,6 +3,7 @@ package com.springboot.mini.model;
 import lombok.Data;
 import lombok.NonNull;
 
+import java.util.Objects;
 import java.util.UUID;
 
 /**

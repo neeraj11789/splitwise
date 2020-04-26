@@ -52,7 +52,14 @@ public class MemoryPassBookServiceImpl implements PassBookService {
 
 	@Override
 	public List<PassBookEntry> userUserRecord(User user) {
-		return null;
+		List<PassBookEntry> list = new ArrayList<>();
+		for (Map.Entry<String, PassBookEntry> m : map.entrySet()){
+			if (m.getValue().getUser().equals(user)){
+				System.out.println("Entry " + m.getKey() + ":: " + m.getValue());
+				list.add(m.getValue());
+			}
+		}
+		return list;
 	}
 
 	@Override
