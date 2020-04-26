@@ -53,7 +53,6 @@ class ExpenseServiceTest {
       Expense e1 = new EqualExpense(u1, 1500F, borrowers);
       expenseService.create(e1);
 
-
       // Exact Share
       Map<User, Float> exactShareMap = new HashMap<>();
 	  exactShareMap.put(u3, 700F);
@@ -71,10 +70,13 @@ class ExpenseServiceTest {
       Expense e3 = new PercentExpense(u4, 2000F, percentShareMap);
       expenseService.create(e3);
 
+      // List Expense
 	  expenseService.getAll();
+
+	  // All PassBook Records
       passBookService.allRecords();
 
-        System.out.println("#####################");
+      System.out.println("#####################");
       // Expense for U3
       passBookService.userUserRecord(u3);
   }
