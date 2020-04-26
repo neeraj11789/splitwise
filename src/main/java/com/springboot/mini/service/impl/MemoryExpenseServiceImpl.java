@@ -1,14 +1,10 @@
 package com.springboot.mini.service.impl;
 
 import com.springboot.mini.model.Expense;
-import com.springboot.mini.model.PassBookEntry;
 import com.springboot.mini.service.ExpenseService;
 import com.springboot.mini.service.PassBookService;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /** The type Memory expense service. */
 public class MemoryExpenseServiceImpl implements ExpenseService {
@@ -30,6 +26,11 @@ public class MemoryExpenseServiceImpl implements ExpenseService {
 	public void create(Expense expense) {
 		map.put(expense.getId(), expense);
 		passBookService.newRecord(expense);
+	}
+
+	@Override
+	public Optional<Expense> findById(String id) {
+		return Optional.ofNullable(map.get(id));
 	}
 
 	@Override

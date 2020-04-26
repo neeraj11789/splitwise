@@ -22,7 +22,7 @@ public interface PassBookService {
    * @param user the user
    * @return the list
    */
-  List<PassBookEntry> userUserRecord(User user);
+  List<PassBookEntry> userRecord(User user);
 
   /**
    * User all records list.
@@ -30,4 +30,8 @@ public interface PassBookService {
    * @return the list
    */
   List<PassBookEntry> allRecords();
+
+  void displayUserRecord(User user);
+
+  void displayAllRecords();
 }

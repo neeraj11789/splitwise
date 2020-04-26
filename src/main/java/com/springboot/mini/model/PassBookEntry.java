@@ -22,8 +22,8 @@ public class PassBookEntry {
 	private User user;
 
 	@NonNull
-	private String expenseId;
-//	private Expense expense;
+//	private String expenseId;
+	private Expense expense;
 
 	private LocalDateTime creationTime = LocalDateTime.now();
 }

@@ -74,10 +74,19 @@ class ExpenseServiceTest {
 	  expenseService.getAll();
 
 	  // All PassBook Records
-      passBookService.allRecords();
+//      passBookService.allRecords();
+      passBookService.displayAllRecords();
 
       System.out.println("#####################");
       // Expense for U3
-      passBookService.userUserRecord(u3);
+//      passBookService.userRecord(u3);
+      passBookService.displayUserRecord(u3);
+
+      System.out.println("#####################");
+      // Expense for U5
+//      passBookService.userRecord(u5);
+      passBookService.displayUserRecord(u1);
+
+
   }
 }

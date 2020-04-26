@@ -36,7 +36,7 @@ public class MemoryPassBookServiceImpl implements PassBookService {
 		while (iterator.hasNext()){
 			Map.Entry<User, Float> current = iterator.next();
 			list.add(new PassBookEntry(Float.valueOf(0F - current.getValue()),
-					TransactionType.CREDIT, current.getKey(), expense.getId()));
+					TransactionType.CREDIT, current.getKey(), expense));
 		}
 		return list;
 	}
@@ -47,11 +47,11 @@ public class MemoryPassBookServiceImpl implements PassBookService {
 	 * @return
 	 */
 	private PassBookEntry getDebitRecord(@NonNull Expense expense) {
-		return new PassBookEntry(expense.getAmount(), TransactionType.DEBIT, expense.getLender(), expense.getId());
+		return new PassBookEntry(expense.getAmount(), TransactionType.DEBIT, expense.getLender(), expense);
 	}
 
 	@Override
-	public List<PassBookEntry> userUserRecord(User user) {
+	public List<PassBookEntry> userRecord(User user) {
 		List<PassBookEntry> list = new ArrayList<>();
 		for (Map.Entry<String, PassBookEntry> m : map.entrySet()){
 			if (m.getValue().getUser().equals(user)){
@@ -70,5 +70,40 @@ public class MemoryPassBookServiceImpl implements PassBookService {
             list.add(m.getValue());
 		}
 		return list;
+	}
+
+	@Override
+	public void displayUserRecord(User user) {
+		List<PassBookEntry> list = userRecord(user);
+
+		for (PassBookEntry p : list){
+			printRecord(p);
+		}
+	}
+
+	/**
+	 * Print Util
+	 * @param p
+	 */
+	private void printRecord(PassBookEntry p) {
+		User lender = getDebitRecord(p.getExpense()).getUser();
+		float amount = (p.getAmount() * -1);
+
+		// Ignore Debit Transactions
+		if(p.getType().equals(TransactionType.DEBIT)) return;
+
+		// Ignore Self Records
+		if(lender.equals(p.getUser())) return;
+
+		System.out.println("User: " + p.getUser().getName() + " owes "  + amount + " to User: " + lender.getName());
+	}
+
+	@Override
+	public void displayAllRecords() {
+		List<PassBookEntry> list = allRecords();
+
+		for (PassBookEntry p : list){
+			printRecord(p);
+		}
 	}
 }
