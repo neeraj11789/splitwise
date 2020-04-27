@@ -106,4 +106,26 @@ public class MemoryPassBookServiceImpl implements PassBookService {
 			printRecord(p);
 		}
 	}
+
+	@Override
+	public void displayBalance(User user) {
+		Float balance = 0F;
+		for (PassBookEntry p : userRecord(user)){
+			balance += p.getAmount();
+		}
+
+        System.out.println("Balance for the User: " + user.getName() + " :: " + balance);
+	}
+
+	@Override
+	public void displayAllBalance() {
+		Map<String, Float> map = new HashMap<>();
+		for (PassBookEntry p : allRecords()){
+			map.put(p.getUser().getName(), map.getOrDefault(p.getUser().getName(), 0F) + p.getAmount());
+		}
+
+		for (Map.Entry<String, Float> m: map.entrySet()){
+			System.out.println("Balance for the User: " + m.getKey() + " :: " + m.getValue());
+		}
+	}
 }

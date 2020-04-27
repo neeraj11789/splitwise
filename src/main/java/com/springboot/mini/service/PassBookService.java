@@ -34,4 +34,8 @@ public interface PassBookService {
   void displayUserRecord(User user);
 
   void displayAllRecords();
+
+  void displayBalance(User user);
+
+  void displayAllBalance();
 }

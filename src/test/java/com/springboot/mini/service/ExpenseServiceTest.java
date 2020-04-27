@@ -87,6 +87,12 @@ class ExpenseServiceTest {
 //      passBookService.userRecord(u5);
       passBookService.displayUserRecord(u1);
 
+      passBookService.displayAllBalance();
+
+      passBookService.displayBalance(u5);
+
+      passBookService.displayBalance(u3);
+
 
   }
 }
