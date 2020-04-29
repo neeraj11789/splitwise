@@ -34,3 +34,4 @@ A Demo Project to create an application similar to splitwise. More details [here
 
 ## Todo -
 * Handle Authentication
+* Add Simplify Expense
