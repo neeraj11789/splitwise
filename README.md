@@ -33,7 +33,5 @@ A Demo Project to create an application similar to splitwise. More details [here
 * There can be an option to simplify expenses. When simplify expenses is turned on (is true), the balances should get simplified. Ex: ‘User1 owes 250 to User2 and User2 owes 200 to User3’ should simplify to ‘User1 owes 50 to User2 and 200 to User3’.
 
 ## Todo -
-*
-
-## Known Issues/ Limitations
-*
+* Handle Authentication
+* Add Simplify Expense
